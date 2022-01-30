@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <input id="mi" type="text" placeholder="0.00" style="text-align: right;">
+
+
+  <script>
+    const el = document.getElementById('mi');
+    el.addEventListener('keyup', mask);
+  
+    function mask(e) {
+      let sel = el.selectionStart-1;
+      let l = el.value.length;
+      let r = el.value.split(".").map(x => x.replace(/(?!^-)[^0-9]/g, ""));
+      if(r[1]) {
+        r[1] = r[1].slice(0, 2);
+      }
+      el.value = r.slice(0, 2).join(".");
+      if(l > el.value.length) {
+        el.setSelectionRange(sel,sel);
+      }
+
+    }
+  </script>
+
+</body>
+
+</html>
