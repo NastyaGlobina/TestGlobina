@@ -15,7 +15,7 @@ return n.replace(/^\$?\-?\d+(\,\d{3})*(\.\d\d)?$/gm, n)
 }
 console.log(formatNumberRegexp(number))
 
-
+// variant 3
 function format (n) {
     return n.split( /(?=(?:\d{3})+(?:\.|$))/g ).join( " " );
 }
